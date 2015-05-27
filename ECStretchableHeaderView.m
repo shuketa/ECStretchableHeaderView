@@ -298,16 +298,18 @@
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
-    UIScrollView *scrollView = object;
-
-    if ([keyPath isEqualToString:@"contentOffset"])
-    {
-        [self _scrollView:scrollView offsetChanged:change];
-    }
-
-    if ([keyPath isEqualToString:@"contentSize"])
-    {
-        [self _scrollView:scrollView sizeChanged:change];
+    if (self.attachedScrollView == object) {
+        UIScrollView *scrollView = object;
+        
+        if ([keyPath isEqualToString:@"contentOffset"])
+        {
+            [self _scrollView:scrollView offsetChanged:change];
+        }
+        
+        if ([keyPath isEqualToString:@"contentSize"])
+        {
+            [self _scrollView:scrollView sizeChanged:change];
+        }
     }
 }
 
