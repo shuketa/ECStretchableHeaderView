@@ -13,7 +13,7 @@
 @implementation ECStretchableHeaderView
 {
     UIPanGestureRecognizer *_panGestureRecognizer;
-    UITapGestureRecognizer *_tapGestureRecognizer;
+//    UITapGestureRecognizer *_tapGestureRecognizer;
 
     CGPoint _lastPanLocation;
 
@@ -47,9 +47,9 @@
     [self addGestureRecognizer:_panGestureRecognizer];
     _panGestureRecognizer.delegate = self;
 
-    _tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTap:)];
-    [self addGestureRecognizer:_tapGestureRecognizer];
-    _tapGestureRecognizer.delegate = self;
+//    _tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTap:)];
+//    [self addGestureRecognizer:_tapGestureRecognizer];
+//    _tapGestureRecognizer.delegate = self;
 
     self.clipsToBounds = YES;
     self.translatesAutoresizingMaskIntoConstraints = NO;
@@ -67,14 +67,14 @@
     return NO;
 }
 
-- (void)didTap:(id)sender
-{
-    CGPoint newOffset = self.attachedScrollView.contentOffset;
-    newOffset.y -= self.maxHeight - CGRectGetHeight(self.frame);
-    [UIView animateWithDuration:0.2f delay:0.0f options:UIViewAnimationOptionCurveEaseOut animations:^{
-        [self.attachedScrollView setContentOffset:newOffset animated:YES];
-    } completion:nil];
-}
+//- (void)didTap:(id)sender
+//{
+//    CGPoint newOffset = self.attachedScrollView.contentOffset;
+//    newOffset.y -= self.maxHeight - CGRectGetHeight(self.frame);
+//    [UIView animateWithDuration:0.2f delay:0.0f options:UIViewAnimationOptionCurveEaseOut animations:^{
+//        [self.attachedScrollView setContentOffset:newOffset animated:YES];
+//    } completion:nil];
+//}
 - (void)didPan:(id)sender
 {
     CGPoint currentLocation = [_panGestureRecognizer locationInView:self];
