@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 @protocol ECStretchableHeaderViewDelegate;
 
-@interface ECStretchableHeaderView : UIView<UIGestureRecognizerDelegate, UIScrollViewDelegate>
+@interface ECStretchableHeaderView : UIView
 
 @property (assign) CGFloat maxHeight;
 @property (assign) CGFloat minHeight;
